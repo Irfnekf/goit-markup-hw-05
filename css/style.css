@@ -100,6 +100,7 @@ img {
   display: flex;
   gap: 50px;
 }
+
 .link-current::after {
   content: '';
   display: block;
@@ -534,7 +535,7 @@ img {
   width: calc((100% - 60px) / 3);
   position: relative;
 }
-.project-hover-text {
+.project-modal-text {
   position: absolute;
   font-weight: 400;
   font-size: 18px;
@@ -547,18 +548,20 @@ img {
   width: 100%;
   top: 0;
   opacity: 0;
+  pointer-events: none;
 }
-.project-cards:hover .project-hover-text {
+.project-cards:hover {
+  box-shadow: var(--box-shadow-portfolio);
+}
+.project-link:hover .project-modal-text,
+.project-link:focus .project-modal-text {
   opacity: 1;
 }
+
 .project-link {
   text-decoration: none;
 }
 
-.project-con,
-.project-hover-text:hover {
-  opacity: 1;
-}
 .project-title {
   color: var(--title-text-color);
   margin-bottom: 4px;
@@ -577,9 +580,4 @@ img {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.03em;
-}
-
-.project-link:hover,
-.project-link:focus {
-  box-shadow: var(--box-shadow-portfolio);
 }
