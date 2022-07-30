@@ -118,7 +118,20 @@ img {
   border-radius: 2px;
   bottom: 0;
   right: 0;
+  animation: animation-current 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+@keyframes animation-current {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 .site-nav .link.current {
   color: var(--button-link-primary);
 }
@@ -133,6 +146,7 @@ img {
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--button-link-primary);
+  transition: color var(--animation);
 }
 
 /*auth */
@@ -362,6 +376,7 @@ img {
 .our-team-link:focus {
   background-color: var(--button-link-primary);
   fill: var(--primay-bg-color);
+  transition: background-color var(--animation), fill var(--animation);
 }
 .our-team-text {
   color: var(--primary-text-color);
@@ -402,6 +417,7 @@ img {
 .clients-link:focus {
   fill: var(--button-link-primary);
   border-color: var(--button-link-primary);
+  transition: border-color var(--animation), fill var(--animation);
 }
 
 /* footer */
@@ -453,10 +469,12 @@ img {
 .location:hover,
 .location:focus {
   color: var(--button-link-primary);
+  transition: color var(--animation);
 }
 .footlink:hover,
 .footlink:focus {
   color: var(--button-link-primary);
+  transition: color var(--animation);
 }
 .contacts-nav {
   display: flex;
@@ -485,6 +503,7 @@ img {
 .footer-icon:hover,
 .footer-icon:focus {
   background-color: var(--button-link-primary);
+  transition: background-color var(--animation);
 }
 /* portfolio */
 
@@ -516,6 +535,7 @@ img {
   background-color: var(--button-link-primary);
   color: var(--primay-bg-color);
   box-shadow: var(--filtres-box-shadow);
+  transition: background-color var(--animation), color var(--animation), box-shadow var(--animation);
 }
 
 /*project*/
@@ -553,6 +573,7 @@ img {
 }
 .project-cards:hover {
   box-shadow: var(--box-shadow-portfolio);
+  transition: box-shadow var(--animation);
 }
 .project-link:hover .project-modal-text,
 .project-link:focus .project-modal-text {
@@ -632,4 +653,5 @@ img {
 }
 .button-modal:hover {
   fill: var(--button-active-color);
+  transition: fill var(--animation);
 }
