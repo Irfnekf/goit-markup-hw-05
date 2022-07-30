@@ -118,7 +118,7 @@ img {
   border-radius: 2px;
   bottom: 0;
   right: 0;
-  animation: animation-current 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: animation-current var(--animation);
 }
 @keyframes animation-current {
   0% {
