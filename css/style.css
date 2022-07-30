@@ -21,6 +21,8 @@ body {
     1px 4px 6px rgba(0, 0, 0, 0.16);
   --filtres-box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  --modal-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   --border-header-color: #ececec;
   --icon-color: #afb1b8;
   --footer-icon-background: rgba(255, 255, 255, 0.1);
@@ -205,43 +207,8 @@ img {
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--button-active-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
-}
-.backdrop {
-  position: fixed;
-
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 100%;
-  height: 1024px;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.modal-window {
-  position: absolute;
-  width: 528px;
-  height: 581px;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  background-color: var(--primay-bg-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-.button-modal {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  border-radius: 60%;
-  background-color: var(--primay-bg-color);
-  border-color: rgba(0, 0, 0, 0.1);
 }
 .hide {
   position: absolute;
@@ -305,30 +272,28 @@ img {
   gap: 30px;
 }
 .section-cards {
-  width: calc((100% - 60px) / 3);
   position: relative;
 }
+
 .section-text {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
+  bottom: 0;
 
   font-weight: 700;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
   letter-spacing: 0.03em;
 
-  text-align: center;
   text-transform: uppercase;
 
   color: var(--primay-bg-color);
   background-color: var(--text-bg-section);
 
-  justify-content: center;
-  align-items: center;
-
   width: 100%;
   height: 70px;
-  bottom: 0;
 }
 
 .section-title {
@@ -618,4 +583,55 @@ img {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.03em;
+}
+/* modal window */
+
+.backdrop {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal-window {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal-window {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--primay-bg-color);
+  box-shadow: var(--modal-shadow);
+  border-radius: 4px;
+}
+.button-modal {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 60%;
+  background-color: var(--primay-bg-color);
+  border-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-modal:hover {
+  fill: var(--button-active-color);
 }
