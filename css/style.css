@@ -169,13 +169,12 @@ img {
   align-items: center;
   fill: currentColor;
   gap: 10px;
-  transition: color var(--animation), var(--animation);
+  transition: color var(--animation);
 }
 
 .auth-nav .auth-link:hover,
 .auth-nav .auth-link:focus {
   color: var(--button-link-primary);
-  fill: currentColor;
 }
 
 /*list*/
@@ -376,7 +375,6 @@ img {
 .our-team-link:focus {
   background-color: var(--button-link-primary);
   fill: var(--primay-bg-color);
-  transition: background-color var(--animation), fill var(--animation);
 }
 .our-team-text {
   color: var(--primary-text-color);
@@ -417,7 +415,6 @@ img {
 .clients-link:focus {
   fill: var(--button-link-primary);
   border-color: var(--button-link-primary);
-  transition: border-color var(--animation), fill var(--animation);
 }
 
 /* footer */
@@ -469,12 +466,10 @@ img {
 .location:hover,
 .location:focus {
   color: var(--button-link-primary);
-  transition: color var(--animation);
 }
 .footlink:hover,
 .footlink:focus {
   color: var(--button-link-primary);
-  transition: color var(--animation);
 }
 .contacts-nav {
   display: flex;
@@ -503,7 +498,6 @@ img {
 .footer-icon:hover,
 .footer-icon:focus {
   background-color: var(--button-link-primary);
-  transition: background-color var(--animation);
 }
 /* portfolio */
 
@@ -535,7 +529,6 @@ img {
   background-color: var(--button-link-primary);
   color: var(--primay-bg-color);
   box-shadow: var(--filtres-box-shadow);
-  transition: background-color var(--animation), color var(--animation), box-shadow var(--animation);
 }
 
 /*project*/
@@ -546,7 +539,6 @@ img {
 }
 .project-cards {
   width: calc((100% - 60px) / 3);
-  transition: box-shadow var(--animation);
 }
 .project-modal-text {
   font-weight: 400;
@@ -571,10 +563,6 @@ img {
   overflow: hidden;
   position: relative;
 }
-.project-cards:hover {
-  box-shadow: var(--box-shadow-portfolio);
-  transition: box-shadow var(--animation);
-}
 .project-link:hover .project-modal-text,
 .project-link:focus .project-modal-text {
   opacity: 1;
@@ -583,8 +571,13 @@ img {
 }
 .project-link {
   text-decoration: none;
+  display: block;
+  transition: box-shadow var(--animation);
 }
-
+.project-link:hover,
+.project-link:focus {
+  box-shadow: var(--box-shadow-portfolio);
+}
 .project-title {
   color: var(--title-text-color);
   margin-bottom: 4px;
